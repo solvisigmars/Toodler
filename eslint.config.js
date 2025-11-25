@@ -6,5 +6,10 @@ module.exports = defineConfig([
   expoConfig,
   {
     ignores: ['dist/*'],
+    rules: {
+      indent: ['error', 2], 
+      quotes: ['error', 'single'],
+      'brace-style': ['error', '1tbs'], 
+    },
   },
 ]);
