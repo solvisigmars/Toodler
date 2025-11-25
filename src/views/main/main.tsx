@@ -1,4 +1,5 @@
 import { addBoard, deleteBoard, getBoards } from '@/src/services/board-service';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import {
   Image,
@@ -11,12 +12,14 @@ import {
 } from 'react-native';
 import styles from './style';
 
+
 export function Main() {
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState('');
   const [refresh, setRefresh] = useState(false);
+  const router = useRouter();
 
   const boards = getBoards();
 
@@ -63,12 +66,19 @@ export function Main() {
                 Delete
               </Text>
             </TouchableOpacity>
-            <Image
-              source={{ uri: board.thumbnailPhoto }}
-              style={styles.image}
-            />
-            <Text style={styles.title}>{board.name}</Text>
-            <Text style={styles.description}>{board.description}</Text>
+            <TouchableOpacity
+              key={board.id}
+              style={styles.board}
+              onPress={() => router.push(`/board/${board.id}`)}
+            >
+              <Image
+                source={{ uri: board.thumbnailPhoto }}
+                style={styles.image}
+              />
+              <Text style={styles.title}>{board.name}</Text>
+              <Text style={styles.description}>{board.description}</Text>
+            </TouchableOpacity>
+            
           </View>
         ))}
         <TouchableOpacity
