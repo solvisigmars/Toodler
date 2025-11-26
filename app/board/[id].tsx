@@ -1,11 +1,10 @@
-import { Text, View } from 'react-native';
+import ListsScreen from '@/src/views/list/list/list';
+import { View } from "react-native";
 
-export default function Board(){
-  return(
-    <View
-      style = {{flex: 1}}
-    >
-      <Text>Welcome to the Board </Text>
+export default function Board() {
+  return (
+    <View style={{ flex: 1 }}>
+      <ListsScreen />
     </View>
-  )
+  );
 }
