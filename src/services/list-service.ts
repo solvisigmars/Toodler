@@ -1,5 +1,5 @@
-import { lists } from "./data-service";
-import { List } from "../types/Lists";
+import { lists } from './data-service';
+import { List } from '../types/Lists';
 
 export function getListsForBoard(boardId: number): List[] {
   return lists.filter(list => list.boardId === boardId);

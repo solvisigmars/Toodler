@@ -1,23 +1,22 @@
-import { useState } from "react";
-import { useRouter } from "expo-router";
-import { 
-  View, 
-  Text, 
-  FlatList, 
-  TouchableOpacity, 
-  Modal, 
-  TextInput 
-} from "react-native";
-import { useLocalSearchParams } from "expo-router";
-import { getListsForBoard, addList, deleteList } from "@/src/services/list-service";
-import styles from "./style";
+import { addList, deleteList, getListsForBoard } from '@/src/services/list-service';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useState } from 'react';
+import {
+  FlatList,
+  Modal,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import styles from './style';
 
 export default function ListsScreen() {
   const { id } = useLocalSearchParams();
   const boardId = Number(id);
   const [modalVisible, setModalVisible] = useState(false);
-  const [listName, setListName] = useState("");
-  const [listColor, setListColor] = useState("");
+  const [listName, setListName] = useState('');
+  const [listColor, setListColor] = useState('');
   const [lists, setLists] = useState(getListsForBoard(boardId));
   const router = useRouter();
   
@@ -27,7 +26,7 @@ export default function ListsScreen() {
     const newList = {
       id: Date.now(),
       name: listName,
-      color: listColor || "#cccccc",
+      color: listColor || '#cccccc',
       boardId,
     };
 
@@ -37,8 +36,8 @@ export default function ListsScreen() {
     setLists(getListsForBoard(boardId));
 
     // Reset fields
-    setListName("");
-    setListColor("");
+    setListName('');
+    setListColor('');
     setModalVisible(false);
   }
 

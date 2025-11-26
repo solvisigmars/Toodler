@@ -1,3 +1,3 @@
-import { Taskcreen } from "@/src/views/list/task/task";
+import Taskcreen from '@/src/views/task/task';
 
 export default Taskcreen;

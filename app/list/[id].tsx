@@ -1,5 +1,5 @@
-import { View } from "react-native";
-import TasksScreen from "@/src/views/list/task/task";
+import TasksScreen from '@/src/views/task/task';
+import { View } from 'react-native';
 
 export default function List() {
   return (

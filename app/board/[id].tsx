@@ -1,5 +1,5 @@
-import ListsScreen from '@/src/views/list/list/list';
-import { View } from "react-native";
+import ListsScreen from '@/src/views/list/list';
+import { View } from 'react-native';
 
 export default function Board() {
   return (
