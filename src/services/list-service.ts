@@ -5,6 +5,10 @@ export function getListsForBoard(boardId: number): List[] {
   return lists.filter(list => list.boardId === boardId);
 }
 
+export function getListById(id: number): List | undefined {
+  return lists.find(l => l.id === id);
+}
+
 export function addList(list: List) {
   lists.push(list);
 }

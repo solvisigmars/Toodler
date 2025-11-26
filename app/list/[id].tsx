@@ -1,10 +1,15 @@
+import { Stack } from 'expo-router';
 import TasksScreen from '@/src/views/task/task';
-import { View } from 'react-native';
 
-export default function List() {
+export default function TaskLayout() {
   return (
-    <View style={{ flex: 1 }}>
+    <>
+      <Stack.Screen 
+        options={{
+          title: 'Tasks',   
+        }}
+      />
       <TasksScreen />
-    </View>
+    </>
   );
 }
