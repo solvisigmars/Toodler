@@ -1,15 +1,19 @@
-import { StyleSheet } from "react-native";
+import { background, blue, lightGray, red, darkGray } from '@/src/styles/color';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: background,
   },
 
   title: {
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 20,
+    textAlign: "center",
+    color: darkGray,
   },
 
   listWrapper: {
@@ -19,35 +23,65 @@ export default StyleSheet.create({
   listItem: {
     padding: 40,
     borderRadius: 15,
-    justifyContent: "center",   
-    alignItems: "center",        
+    justifyContent: "center",
+    alignItems: "center",
     position: "relative",
+    backgroundColor: "white",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   listTitle: {
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
+    color: darkGray,
   },
 
-  addButton: {
-    backgroundColor: "black",
+  // 🚀 MATCHES friend’s “button” style naming
+  button: {
+    backgroundColor: blue,
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
     marginTop: 20,
   },
 
-  addButtonText: {
+  buttonText: {
     color: "white",
     fontSize: 18,
   },
 
+  // 🚀 Delete button — same naming as friend’s
+  buttonDelete: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    width: 50,
+    height: 20,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: red,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+
+  buttonTextDelete: {
+    color: "black",
+    fontSize: 14,
+  },
+
+  // 🚀 Modal styling (matches friend’s naming)
   modalBackground: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.3)",
+    backgroundColor: background,
     padding: 20,
   },
 
@@ -64,6 +98,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
+    color: "black",
   },
 
   modalInput: {
@@ -82,47 +117,33 @@ export default StyleSheet.create({
     marginTop: 10,
   },
 
-  modalExitButton: {
-    backgroundColor: "#d9d9d9",
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    borderRadius: 18,
+  modalButtonExit: {
+    width: "40%",
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: lightGray,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   modalExitText: {
-    color: "black",
+    color: darkGray,
     fontSize: 16,
     fontWeight: "600",
   },
 
-  modalCreateButton: {
-    backgroundColor: "#4b7bec",
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    borderRadius: 18,
+  modalButtonCreate: {
+    width: "40%",
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: blue,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   modalCreateText: {
     color: "white",
     fontSize: 16,
     fontWeight: "600",
-  },
-
-
-  deleteButton: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    backgroundColor: "#e74c3c",
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 15,
-    zIndex: 10,
-  },
-
-  deleteButtonText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 14,
   },
 });
