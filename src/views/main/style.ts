@@ -71,6 +71,22 @@ export default StyleSheet.create({
     shadowRadius: 3,
     elevation: 3,
   },
+  buttonEdit:{
+    width: 50,
+    height: 20,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: lightGray,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  buttonTextEdit:{
+    color: darkGray,
+    fontWeight: 'bold',
+    fontSize: 14
+  },
   modalBackground: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',  

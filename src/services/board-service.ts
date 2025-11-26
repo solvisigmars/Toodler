@@ -15,3 +15,16 @@ export function deleteBoard(id: number) {
     boards.splice(index, 1); 
   }
 }
+
+export function updateBoard(id: number, updatedFields: Partial<Board>){
+  const index = boards.findIndex(board => board.id === id);
+
+  if (index === -1) return false; 
+
+  boards[index] = {
+    ...boards[index],   
+    ...updatedFields    
+  };
+
+  return true;
+}

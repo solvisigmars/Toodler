@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  FlatList, 
-  TouchableOpacity, 
-  Modal, 
-  TextInput 
-} from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
-import { getTasksForList, addTask, deleteTask } from '@/src/services/task-service';
 import { getListById } from '@/src/services/list-service';
+import { addTask, deleteTask, getTasksForList } from '@/src/services/task-service';
+import { useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
+import {
+  FlatList,
+  Modal,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import styles from './style';
 
 export default function TasksScreen() {

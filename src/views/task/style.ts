@@ -10,7 +10,7 @@ export default StyleSheet.create({
 
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',      
     alignSelf: 'center',
@@ -21,90 +21,90 @@ export default StyleSheet.create({
   },
 
   taskItem: {
-    backgroundColor: "#ffffff",   
+    backgroundColor: '#ffffff',   
     padding: 40,
     borderRadius: 15,
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
     borderWidth: 1,
-    borderColor: "#ddd",          
+    borderColor: '#ddd',          
   },
 
   taskTitle: {
     fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 
   addButton: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     padding: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 20,
   },
 
   addButtonText: {
-    color: "white",
+    color: 'white',
     fontSize: 18,
   },
 
   modalBackground: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     padding: 20,
   },
 
   modalBox: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
   },
 
   modalTitle: {
     fontSize: 22,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 
   modalInput: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     padding: 10,
     marginTop: 10,
     borderRadius: 5,
   },
 
   modalButtonRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 20,
   },
 
   modalExitButton: {
-    backgroundColor: "#ccc",
+    backgroundColor: '#ccc',
     padding: 10,
     borderRadius: 8,
-    width: "45%",
+    width: '45%',
   },
 
   modalExitText: {
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 
   modalCreateButton: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     padding: 10,
     borderRadius: 8,
-    width: "45%",
+    width: '45%',
   },
 
   modalCreateText: {
-    color: "white",
-    textAlign: "center",
-    fontWeight: "bold",
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 
   deleteButton: {
