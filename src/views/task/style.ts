@@ -1,19 +1,19 @@
-import { red } from '@/src/styles/color';
 import { StyleSheet } from 'react-native';
-
+import { red, blue, lightGray, background, darkGray } from '@/src/styles/color';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: background,
     padding: 20,
   },
 
   title: {
     fontSize: 28,
     fontWeight: 'bold',
+    textAlign: 'center',
     marginBottom: 20,
-    textAlign: 'center',      
-    alignSelf: 'center',
+    color: darkGray,
   },
 
   taskWrapper: {
@@ -21,31 +21,100 @@ export default StyleSheet.create({
   },
 
   taskItem: {
-    backgroundColor: '#ffffff',   
-    padding: 40,
-    borderRadius: 15,
+    backgroundColor: 'white',
+    padding: 50,
+    borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    borderWidth: 1,
-    borderColor: '#ddd',          
+
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 4,
   },
 
   taskTitle: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: darkGray,
   },
 
-  addButton: {
-    backgroundColor: 'black',
+  finishedTaskText: {
+    textDecorationLine: 'line-through',
+    opacity: 0.5,
+  },
+
+  Description: {
+    fontSize: 16,
+    marginTop: 8,
+    textAlign: 'center',
+    color: darkGray,
+  },
+
+  buttonDelete: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    width: 50,
+    height: 20,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: red,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+
+  buttonTextDelete: {
+    color: 'black',
+    fontSize: 14,
+  },
+
+  buttonMove: {
+    position: 'absolute',
+    top: 10,
+    right: 70,
+    backgroundColor: blue,
+    borderRadius: 25,
+    paddingHorizontal: 15,
+    paddingVertical: 6,
+  },
+
+  buttonTextMove: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+
+  // TOGGLE ✓ / X
+  toggleButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: lightGray,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+
+  toggleButtonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: darkGray,
+  },
+
+  button: {
+    backgroundColor: blue,
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 20,
   },
 
-  addButtonText: {
+  buttonText: {
     color: 'white',
     fontSize: 18,
   },
@@ -53,24 +122,28 @@ export default StyleSheet.create({
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    alignItems: 'center',
+    backgroundColor: background,
     padding: 20,
   },
 
-  modalBox: {
+  modalContent: {
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
+    width: '85%',
   },
 
   modalTitle: {
     fontSize: 22,
     fontWeight: 'bold',
+    textAlign: 'center',
+    color: darkGray,
   },
 
   modalInput: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: lightGray,
     padding: 10,
     marginTop: 10,
     borderRadius: 5,
@@ -82,48 +155,45 @@ export default StyleSheet.create({
     marginTop: 20,
   },
 
-  modalExitButton: {
-    backgroundColor: '#ccc',
-    padding: 10,
-    borderRadius: 8,
-    width: '45%',
+  modalButtonExit: {
+    width: '40%',
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: lightGray,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   modalExitText: {
-    textAlign: 'center',
+    color: darkGray,
     fontWeight: 'bold',
   },
 
-  modalCreateButton: {
-    backgroundColor: 'black',
-    padding: 10,
-    borderRadius: 8,
-    width: '45%',
+  modalButtonCreate: {
+    width: '40%',
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: blue,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   modalCreateText: {
     color: 'white',
-    textAlign: 'center',
     fontWeight: 'bold',
   },
 
-  deleteButton: {
-    width: 50,
-    height: 20,
-    borderRadius: 25,
-    justifyContent: 'center',
+  moveOption: {
+    padding: 12,
+    backgroundColor: lightGray,
+    borderRadius: 10,
+    marginTop: 10,
     alignItems: 'center',
-    backgroundColor: red,   // ← use same color variable
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 3,
   },
-  deleteButtonText: {
-    color: 'black',
-    fontSize: 14,
-    fontWeight: 'normal',
+
+  moveOptionText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: darkGray,
   },
 });

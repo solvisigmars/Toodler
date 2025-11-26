@@ -29,7 +29,7 @@ export function Main() {
     if (!name.trim()) return;
 
     const newBoard = {
-      id: boards.length + 1,
+      id: Date.now(),
       name,
       description,
       thumbnailPhoto: photo,

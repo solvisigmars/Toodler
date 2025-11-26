@@ -10,6 +10,15 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+import { 
+  getTasksForList,
+  addTask,
+  deleteTask,
+  toggleTaskFinished,
+  moveTask
+} from '@/src/services/task-service';
+import { getListById, getListsForBoard } from '@/src/services/list-service';
 import styles from './style';
 
 export default function TasksScreen() {
@@ -18,9 +27,19 @@ export default function TasksScreen() {
 
   const list = getListById(listId);
 
+  const listsInBoard = getListsForBoard(list?.boardId || -1);
+
+  const tasksInitial = getTasksForList(listId);
+
+  const [tasks, setTasks] = useState(tasksInitial);
   const [modalVisible, setModalVisible] = useState(false);
+  const [moveModalVisible, setMoveModalVisible] = useState(false);
+  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+
   const [taskName, setTaskName] = useState('');
-  const [tasks, setTasks] = useState(getTasksForList(listId));
+  const [taskDescription, setTaskDescription] = useState('');
+
+
 
   function handleCreateTask() {
     if (!taskName.trim()) return;
@@ -28,14 +47,16 @@ export default function TasksScreen() {
     const newTask = {
       id: Date.now(),
       name: taskName,
-      description: '',
+      description: taskDescription,
       isFinished: false,
       listId: listId,
     };
 
     addTask(newTask);
     setTasks(getTasksForList(listId));
+
     setTaskName('');
+    setTaskDescription('');
     setModalVisible(false);
   }
 
@@ -44,74 +65,138 @@ export default function TasksScreen() {
     setTasks(getTasksForList(listId));
   }
 
+  function handleToggle(id: number) {
+    toggleTaskFinished(id);
+    setTasks(getTasksForList(listId));
+  }
+
+  function openMoveModal(taskId: number) {
+    setSelectedTaskId(taskId);
+    setMoveModalVisible(true);
+  }
+
+  function handleMoveTask(newListId: number) {
+    if (!selectedTaskId) return;
+
+    moveTask(selectedTaskId, newListId);
+    setTasks(getTasksForList(listId));
+    setMoveModalVisible(false);
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{list?.name}</Text>
+      <Text style={styles.title}>{list?.name}!</Text>
 
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}
         ListFooterComponent={
-          <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => setModalVisible(true)}
-          >
-            <Text style={styles.addButtonText}>+ Add Task</Text>
+          <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
+            <Text style={styles.buttonText}>+ Add Task</Text>
           </TouchableOpacity>
         }
         renderItem={({ item }) => (
           <View style={styles.taskWrapper}>
             <View style={styles.taskItem}>
 
-              {/* Delete button */}
               <TouchableOpacity
-                style={styles.deleteButton}
+                style={styles.buttonDelete}
                 onPress={() => handleDeleteTask(item.id)}
               >
-                <Text style={styles.deleteButtonText}>Delete</Text>
+                <Text style={styles.buttonTextDelete}>Delete</Text>
               </TouchableOpacity>
 
-              {/* Task title */}
-              <Text style={styles.taskTitle}>{item.name}</Text>
+              <TouchableOpacity
+                style={styles.buttonMove}
+                onPress={() => openMoveModal(item.id)}
+              >
+                <Text style={styles.buttonTextMove}>Move</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.toggleButton}
+                onPress={() => handleToggle(item.id)}
+              >
+                <Text style={styles.toggleButtonText}>
+                  {item.isFinished ? '✓' : '✕'}
+                </Text>
+              </TouchableOpacity>
+
+              <Text style={[styles.taskTitle, item.isFinished && styles.finishedTaskText]}>
+                {item.name}
+              </Text>
+
+              <Text style={styles.Description}>{item.description}</Text>
             </View>
           </View>
         )}
       />
 
-      {/* Modal */}
-      <Modal visible={modalVisible} animationType='slide' transparent={true}>
+      <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalBackground}>
-          <View style={styles.modalBox}>
-
+          <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Create New Task</Text>
 
             <TextInput
-              placeholder='Task Name'
+              placeholder="Task name"
+              style={styles.modalInput}
               value={taskName}
               onChangeText={setTaskName}
+            />
+
+            <TextInput
+              placeholder="Description"
               style={styles.modalInput}
-              placeholderTextColor='#999'
+              value={taskDescription}
+              onChangeText={setTaskDescription}
             />
 
             <View style={styles.modalButtonRow}>
-              <TouchableOpacity 
-                style={styles.modalExitButton}
+              <TouchableOpacity
+                style={styles.modalButtonExit}
                 onPress={() => setModalVisible(false)}
               >
                 <Text style={styles.modalExitText}>Exit</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity 
-                style={styles.modalCreateButton}
+              <TouchableOpacity
+                style={styles.modalButtonCreate}
                 onPress={handleCreateTask}
               >
                 <Text style={styles.modalCreateText}>Create</Text>
               </TouchableOpacity>
             </View>
-
           </View>
         </View>
       </Modal>
+
+      <Modal visible={moveModalVisible} transparent animationType="fade">
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Move Task To:</Text>
+
+            {listsInBoard
+              .filter(l => l.id !== listId)
+              .map(list => (
+                <TouchableOpacity
+                  key={list.id}
+                  style={styles.moveOption}
+                  onPress={() => handleMoveTask(list.id)}
+                >
+                  <Text style={styles.moveOptionText}>{list.name}</Text>
+                </TouchableOpacity>
+              ))}
+
+            <TouchableOpacity
+              style={[styles.modalButtonExit, { marginTop: 15 }]}
+              onPress={() => setMoveModalVisible(false)}
+            >
+              <Text style={styles.modalExitText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
     </View>
   );
 }
