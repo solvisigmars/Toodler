@@ -12,20 +12,22 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
 
+  listWrapper: {
+    marginBottom: 20,
+  },
+
   listItem: {
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 15,
+    padding: 40,
+    borderRadius: 15,
+    justifyContent: "center",   
+    alignItems: "center",        
+    position: "relative",
   },
 
   listTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
-  },
-
-  deleteText: {
-    color: "red",
-    marginTop: 10,
+    textAlign: "center",
   },
 
   addButton: {
@@ -44,43 +46,83 @@ export default StyleSheet.create({
   modalBackground: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)",
     padding: 20,
   },
 
   modalBox: {
+    width: "100%",
     backgroundColor: "white",
-    padding: 20,
-    borderRadius: 10,
+    padding: 25,
+    borderRadius: 20,
+    alignItems: "center",
   },
 
   modalTitle: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
   },
 
   modalInput: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
+    width: "100%",
+    backgroundColor: "#f2f2f2",
+    padding: 15,
+    borderRadius: 12,
+    fontSize: 16,
+    marginBottom: 12,
+  },
+
+  modalButtonRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
     marginTop: 10,
-    borderRadius: 5,
+  },
+
+  modalExitButton: {
+    backgroundColor: "#d9d9d9",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 18,
+  },
+
+  modalExitText: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "600",
   },
 
   modalCreateButton: {
-    backgroundColor: "black",
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 15,
+    backgroundColor: "#4b7bec",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 18,
   },
 
-  modalCancelButton: {
-    padding: 10,
-    marginTop: 10,
-  },
-
-  modalButtonText: {
+  modalCreateText: {
     color: "white",
-    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+
+
+  deleteButton: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    backgroundColor: "#e74c3c",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+    zIndex: 10,
+  },
+
+  deleteButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 14,
   },
 });

@@ -56,21 +56,36 @@ export default function ListsScreen() {
       <FlatList
         data={lists}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
+        ListFooterComponent={
           <TouchableOpacity
-            onPress={() => router.push(`/list/${item.id}`)}
-            style={[styles.listItem, { backgroundColor: item.color }]}
+            style={styles.addButton}
+            onPress={() => setModalVisible(true)}
           >
-            <Text style={styles.listTitle}>{item.name}</Text>
-
-            <View style={{ marginTop: 10 }}>
-              <TouchableOpacity onPress={() => handleDeleteList(item.id)}>
-                <Text style={styles.deleteText}>Delete</Text>
-              </TouchableOpacity>
-            </View>
+            <Text style={styles.addButtonText}>+ Add List</Text>
           </TouchableOpacity>
+        }
+        renderItem={({ item }) => (
+          <View style={styles.listWrapper}>
+            <TouchableOpacity
+              onPress={() => router.push(`/list/${item.id}`)}
+              style={[styles.listItem, { backgroundColor: item.color }]}
+            >
+              {/* DELETE BUTTON */}
+              <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={() => handleDeleteList(item.id)}
+              >
+                <Text style={styles.deleteButtonText}>Delete</Text>
+              </TouchableOpacity>
+
+              {/* CENTERED TITLE */}
+              <Text style={styles.listTitle}>{item.name}</Text>
+            </TouchableOpacity>
+          </View>
         )}
       />
+
+
 
 
       {/* Add list button */}
@@ -85,13 +100,17 @@ export default function ListsScreen() {
       <Modal visible={modalVisible} animationType="slide" transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalBox}>
+            
+            {/* Title */}
             <Text style={styles.modalTitle}>Create New List</Text>
 
+            {/* Inputs */}
             <TextInput
               placeholder="List Name"
               value={listName}
               onChangeText={setListName}
               style={styles.modalInput}
+              placeholderTextColor="#999"
             />
 
             <TextInput
@@ -99,25 +118,34 @@ export default function ListsScreen() {
               value={listColor}
               onChangeText={setListColor}
               style={styles.modalInput}
+              placeholderTextColor="#999"
             />
 
-            <TouchableOpacity 
-              style={styles.modalCreateButton} 
-              onPress={handleCreateList}
-            >
-              <Text style={styles.modalButtonText}>Create</Text>
-            </TouchableOpacity>
+            {/* Buttons row */}
+            <View style={styles.modalButtonRow}>
+              
+              {/* Exit Button */}
+              <TouchableOpacity 
+                style={styles.modalExitButton} 
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.modalExitText}>Exit</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity 
-              style={styles.modalCancelButton} 
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.modalButtonText}>Cancel</Text>
-            </TouchableOpacity>
+              {/* Create Button */}
+              <TouchableOpacity 
+                style={styles.modalCreateButton} 
+                onPress={handleCreateList}
+              >
+                <Text style={styles.modalCreateText}>Create</Text>
+              </TouchableOpacity>
+
+            </View>
 
           </View>
         </View>
       </Modal>
+
     </View>
   );
 }
