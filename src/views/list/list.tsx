@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import { getBoardById } from '@/src/services/board-service';
 import styles from './style';
 
 export default function ListsScreen() {
@@ -19,6 +20,8 @@ export default function ListsScreen() {
   const [listColor, setListColor] = useState('');
   const [lists, setLists] = useState(getListsForBoard(boardId));
   const router = useRouter();
+  const board = getBoardById(boardId);
+
   
   function handleCreateList() {
     if (!listName.trim()) return;
@@ -44,7 +47,7 @@ export default function ListsScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lists for Board {boardId}</Text>
+      <Text style={styles.title}>{board?.name}!</Text>
 
       <FlatList
         data={lists}

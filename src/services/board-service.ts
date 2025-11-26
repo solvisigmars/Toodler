@@ -5,6 +5,10 @@ export function getBoards(): Board[]{
   return boards
 }
 
+export function getBoardById(id: number): Board | undefined {
+  return boards.find(l => l.id === id);
+}
+
 export function addBoard(board: Board){
   boards.push(board)
 } 

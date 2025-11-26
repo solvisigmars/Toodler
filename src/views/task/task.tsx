@@ -1,6 +1,3 @@
-import { getListById } from '@/src/services/list-service';
-import { addTask, deleteTask, getTasksForList } from '@/src/services/task-service';
-import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import {
   FlatList,

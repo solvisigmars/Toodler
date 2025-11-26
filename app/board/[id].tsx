@@ -1,10 +1,16 @@
-import ListsScreen from '@/src/views/list/list';
-import { View } from 'react-native';
+import { Stack } from 'expo-router';
+import ListScreen from '@/src/views/list/list';
 
-export default function Board() {
+export default function ListLayout() {
   return (
-    <View style={{ flex: 1 }}>
-      <ListsScreen />
-    </View>
+    <>
+      <Stack.Screen 
+        options={{
+          title: 'Lists',   
+        }}
+      />
+      <ListScreen />
+    </>
   );
 }
+
