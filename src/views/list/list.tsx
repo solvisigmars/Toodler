@@ -24,7 +24,7 @@ export default function ListsScreen() {
     if (!listName.trim()) return;
 
     const newList = {
-      id: lists.length + 1,
+      id: Date.now(),
       name: listName,
       color: listColor || '#cccccc',
       boardId,

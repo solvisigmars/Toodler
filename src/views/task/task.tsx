@@ -42,7 +42,7 @@ export default function TasksScreen() {
     if (!taskName.trim()) return;
 
     const newTask = {
-      id: tasks.length + 1,
+      id: Date.now(),
       name: taskName,
       description: taskDescription,
       isFinished: false,
