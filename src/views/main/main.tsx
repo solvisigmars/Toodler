@@ -37,7 +37,7 @@ export function Main() {
 
     addBoard(newBoard);
 
-    //Reset
+    // Reset
     setName('');
     setDescription('');
     setPhoto('');
@@ -67,9 +67,8 @@ export function Main() {
     });
 
     setEditModalVisible(false);
-    setRefresh(r => !r); 
+    setRefresh(r => !r);
   }
-
 
   return (
     <>
@@ -80,27 +79,27 @@ export function Main() {
         <Text style={styles.title}>Your Boards</Text>
         {boards.map((board: Board) => (
           <View key={board.id} style={styles.board}>
-            <View style = {styles.buttonRow}>
+            <View style={styles.buttonRow}>
               <TouchableOpacity
                 onPress={() => handleDeleteBoard(board.id)}
                 style={styles.buttonDelete}
-                accessibilityLabel="Delete Board"
-                accessibilityRole="button"
-              > 
+                accessibilityLabel='Delete Board'
+                accessibilityRole='button'
+              >
                 <Text style={styles.buttonTextDelete}>Delete</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 onPress={() => openEditModal(board)}
                 style={styles.buttonEdit}
-                accessibilityLabel="Edit board"
-                accessibilityRole="button"
+                accessibilityLabel='Edit board'
+                accessibilityRole='button'
               >
-                <Text style = {styles.buttonTextEdit}>Edit</Text>
+                <Text style={styles.buttonTextEdit}>Edit</Text>
               </TouchableOpacity>
             </View>
+
             <TouchableOpacity
-              key={board.id}
               style={styles.board}
               onPress={() => router.push(`/board/${board.id}`)}
             >
@@ -113,6 +112,7 @@ export function Main() {
             </TouchableOpacity>
           </View>
         ))}
+
         <TouchableOpacity
           onPress={() => {
             setName('');
@@ -121,14 +121,14 @@ export function Main() {
             setModalVisible(true);
           }}
           style={styles.button}
-          accessibilityLabel="Create a new board"
-          accessibilityRole="button"
+          accessibilityLabel='Create a new board'
+          accessibilityRole='button'
         >
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </ScrollView>
 
-      <Modal visible={editModalVisible} animationType="slide" transparent={true}>
+      <Modal visible={editModalVisible} animationType='slide' transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Edit Board</Text>
@@ -151,16 +151,17 @@ export function Main() {
               <TouchableOpacity
                 onPress={() => setEditModalVisible(false)}
                 style={styles.modalButtonExit}
-                accessibilityLabel="Exit board"
-                accessibilityRole="button"
+                accessibilityLabel='Exit board'
+                accessibilityRole='button'
               >
                 <Text style={styles.modalButtonText}>Exit</Text>
               </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={handleEditBoard}
                 style={styles.modalButtonCreate}
-                accessibilityLabel="Edit board"
-                accessibilityRole="button"
+                accessibilityLabel='Edit board'
+                accessibilityRole='button'
               >
                 <Text style={styles.modalButtonText}>Confirm</Text>
               </TouchableOpacity>
@@ -169,25 +170,25 @@ export function Main() {
         </View>
       </Modal>
 
-      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+      <Modal visible={modalVisible} animationType='slide' transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Create New Board</Text>
             <TextInput
               style={styles.modalInput}
-              placeholder="Board Name"
+              placeholder='Board Name'
               value={name}
               onChangeText={setName}
             />
             <TextInput
               style={styles.modalInput}
-              placeholder="Description"
+              placeholder='Description'
               value={description}
               onChangeText={setDescription}
             />
             <TextInput
               style={styles.modalInput}
-              placeholder="Image URL"
+              placeholder='Image URL'
               value={photo}
               onChangeText={setPhoto}
             />
@@ -195,16 +196,17 @@ export function Main() {
               <TouchableOpacity
                 onPress={() => setModalVisible(false)}
                 style={styles.modalButtonExit}
-                accessibilityLabel="Exit window"
-                accessibilityRole="button"
+                accessibilityLabel='Exit window'
+                accessibilityRole='button'
               >
                 <Text style={styles.modalButtonText}>Exit</Text>
               </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={handleCreateBoard}
                 style={styles.modalButtonCreate}
-                accessibilityLabel="Create board"
-                accessibilityRole="button"
+                accessibilityLabel='Create board'
+                accessibilityRole='button'
               >
                 <Text style={styles.modalButtonText}>Create</Text>
               </TouchableOpacity>

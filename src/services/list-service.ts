@@ -1,5 +1,5 @@
-import { lists } from './data-service';
 import { List } from '../types/Lists';
+import { lists } from './data-service';
 
 export function getListsForBoard(boardId: number): List[] {
   return lists.filter(list => list.boardId === boardId);
@@ -18,4 +18,17 @@ export function deleteList(id: number) {
   if (index !== -1) {
     lists.splice(index, 1);
   }
+}
+
+export function updateList(id: number, updatedFields: Partial<List>){
+  const index = lists.findIndex(list => list.id === id);
+
+  if (index === -1) return false; 
+
+  lists[index] = {
+    ...lists[index],   
+    ...updatedFields    
+  };
+
+  return true;
 }

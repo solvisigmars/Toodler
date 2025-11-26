@@ -1,4 +1,5 @@
-import { background, blue, lightGray, red, darkGray } from '@/src/styles/color';
+import { background, blue, darkGray, lightGray, red } from '@/src/styles/color';
+import { Button } from '@react-navigation/elements';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -67,6 +68,27 @@ export default StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 3,
+  },
+  
+  buttonEdit:{
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    width: 50,
+    height: 20,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: lightGray,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 10,       
   },
 
   buttonTextDelete: {

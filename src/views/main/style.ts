@@ -56,8 +56,7 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   buttonTextDelete:{
-    color: 'white',
-    fontWeight: 'bold',
+    color: 'black',
     fontSize: 14
   },
   buttonDelete:{
