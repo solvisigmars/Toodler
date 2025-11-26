@@ -8,15 +8,13 @@ import {
   TextInput 
 } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-
 import { 
-  getTasksForList, 
-  addTask, 
-  deleteTask, 
-  toggleTaskFinished, 
-  moveTask 
+  getTasksForList,
+  addTask,
+  deleteTask,
+  toggleTaskFinished,
+  moveTask
 } from '@/src/services/task-service';
-
 import { getListById, getListsForBoard } from '@/src/services/list-service';
 import styles from './style';
 
@@ -25,6 +23,9 @@ export default function TasksScreen() {
   const listId = Number(id);
 
   const list = getListById(listId);
+
+  const listsInBoard = getListsForBoard(list?.boardId || -1);
+
   const tasksInitial = getTasksForList(listId);
 
   const [tasks, setTasks] = useState(tasksInitial);
@@ -35,7 +36,7 @@ export default function TasksScreen() {
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
 
-  const listsInBoard = getListsForBoard(list.boardId);
+
 
   function handleCreateTask() {
     if (!taskName.trim()) return;
@@ -81,7 +82,7 @@ export default function TasksScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{list.name}!</Text>
+      <Text style={styles.title}>{list?.name}!</Text>
 
       <FlatList
         data={tasks}

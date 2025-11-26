@@ -10,9 +10,9 @@ export default StyleSheet.create({
 
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
     color: darkGray,
   },
 
@@ -23,12 +23,12 @@ export default StyleSheet.create({
   listItem: {
     padding: 40,
     borderRadius: 15,
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-    backgroundColor: "white",
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    backgroundColor: 'white',
 
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 3,
@@ -36,8 +36,8 @@ export default StyleSheet.create({
 
   listTitle: {
     fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
     color: darkGray,
   },
 
@@ -45,24 +45,24 @@ export default StyleSheet.create({
     backgroundColor: blue,
     padding: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 20,
   },
 
   buttonText: {
-    color: "white",
+    color: 'white',
     fontSize: 18,
   },
 
   buttonDelete: {
-    position: "absolute",
+    position: 'absolute',
     top: 10,
     left: 10,
     width: 50,
     height: 20,
     borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: red,
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -70,38 +70,37 @@ export default StyleSheet.create({
   },
 
   buttonTextDelete: {
-    color: "black",
+    color: 'black',
     fontSize: 14,
   },
 
-  // 🚀 Modal styling (matches friend’s naming)
   modalBackground: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: background,
     padding: 20,
   },
 
   modalBox: {
-    width: "100%",
-    backgroundColor: "white",
+    width: '100%',
+    backgroundColor: 'white',
     padding: 25,
     borderRadius: 20,
-    alignItems: "center",
+    alignItems: 'center',
   },
 
   modalTitle: {
     fontSize: 26,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: "center",
-    color: "black",
+    textAlign: 'center',
+    color: 'black',
   },
 
   modalInput: {
-    width: "100%",
-    backgroundColor: "#f2f2f2",
+    width: '100%',
+    backgroundColor: '#f2f2f2',
     padding: 15,
     borderRadius: 12,
     fontSize: 16,
@@ -109,39 +108,39 @@ export default StyleSheet.create({
   },
 
   modalButtonRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
     marginTop: 10,
   },
 
   modalButtonExit: {
-    width: "40%",
+    width: '40%',
     height: 40,
     borderRadius: 25,
     backgroundColor: lightGray,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   modalExitText: {
     color: darkGray,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
   modalButtonCreate: {
-    width: "40%",
+    width: '40%',
     height: 40,
     borderRadius: 25,
     backgroundColor: blue,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   modalCreateText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });
