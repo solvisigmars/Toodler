@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
 
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
   },
 
@@ -19,56 +19,56 @@ export default StyleSheet.create({
   listItem: {
     padding: 40,
     borderRadius: 15,
-    justifyContent: "center",   
-    alignItems: "center",        
-    position: "relative",
+    justifyContent: 'center',   
+    alignItems: 'center',        
+    position: 'relative',
   },
 
   listTitle: {
     fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 
   addButton: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     padding: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 20,
   },
 
   addButtonText: {
-    color: "white",
+    color: 'white',
     fontSize: 18,
   },
 
   modalBackground: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.3)",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.3)',
     padding: 20,
   },
 
   modalBox: {
-    width: "100%",
-    backgroundColor: "white",
+    width: '100%',
+    backgroundColor: 'white',
     padding: 25,
     borderRadius: 20,
-    alignItems: "center",
+    alignItems: 'center',
   },
 
   modalTitle: {
     fontSize: 26,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
 
   modalInput: {
-    width: "100%",
-    backgroundColor: "#f2f2f2",
+    width: '100%',
+    backgroundColor: '#f2f2f2',
     padding: 15,
     borderRadius: 12,
     fontSize: 16,
@@ -76,44 +76,44 @@ export default StyleSheet.create({
   },
 
   modalButtonRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
     marginTop: 10,
   },
 
   modalExitButton: {
-    backgroundColor: "#d9d9d9",
+    backgroundColor: '#d9d9d9',
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 18,
   },
 
   modalExitText: {
-    color: "black",
+    color: 'black',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
   modalCreateButton: {
-    backgroundColor: "#4b7bec",
+    backgroundColor: '#4b7bec',
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 18,
   },
 
   modalCreateText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
 
   deleteButton: {
-    position: "absolute",
+    position: 'absolute',
     top: 10,
     left: 10,
-    backgroundColor: "#e74c3c",
+    backgroundColor: '#e74c3c',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 15,
@@ -121,8 +121,8 @@ export default StyleSheet.create({
   },
 
   deleteButtonText: {
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
     fontSize: 14,
   },
 });

@@ -1,6 +1,6 @@
-import { addBoard, deleteBoard, getBoards } from '@/src/services/board-service';
-import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { addBoard, deleteBoard, getBoards } from "@/src/services/board-service";
+import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
   Image,
   Modal,
@@ -8,16 +8,15 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
-} from 'react-native';
-import styles from './style';
-
+  View,
+} from "react-native";
+import styles from "./style";
 
 export function Main() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [photo, setPhoto] = useState("");
   const [refresh, setRefresh] = useState(false);
   const router = useRouter();
 
@@ -36,13 +35,13 @@ export function Main() {
     addBoard(newBoard);
 
     //Reset
-    setName('');
-    setDescription('');
-    setPhoto('');
+    setName("");
+    setDescription("");
+    setPhoto("");
     setModalVisible(false);
   }
 
-  function handleDeleteBoard(id: number){
+  function handleDeleteBoard(id: number) {
     deleteBoard(id);
     setRefresh(!refresh);
   }
@@ -56,15 +55,13 @@ export function Main() {
         <Text style={styles.title}> Your Boards</Text>
         {boards.map((board) => (
           <View key={board.id} style={styles.board}>
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => handleDeleteBoard(board.id)}
-              style= {styles.buttonDelete}
-              accessibilityLabel='Delete Board'
-              accessibilityRole='button'
+              style={styles.buttonDelete}
+              accessibilityLabel="Delete Board"
+              accessibilityRole="button"
             >
-              <Text style = {styles.buttonTextDelete}>
-                Delete
-              </Text>
+              <Text style={styles.buttonTextDelete}>Delete</Text>
             </TouchableOpacity>
             <TouchableOpacity
               key={board.id}
@@ -78,7 +75,6 @@ export function Main() {
               <Text style={styles.title}>{board.name}</Text>
               <Text style={styles.description}>{board.description}</Text>
             </TouchableOpacity>
-            
           </View>
         ))}
         <TouchableOpacity
@@ -90,56 +86,49 @@ export function Main() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </ScrollView>
-      <Modal
-        visible = {modalVisible}
-        animationType='slide'
-        transparent = {true}
-      >
-        <View style= {styles.modalBackground}>
-          <View style = {styles.modalContent}>
-            <Text style = {styles.modalTitle}>
-              Create New Board
-            </Text>
+      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Create New Board</Text>
             <TextInput
-              style = {styles.modalInput}
-              placeholder='Board Name'
-              value = {name}
+              style={styles.modalInput}
+              placeholder="Board Name"
+              value={name}
               onChangeText={setName}
             />
             <TextInput
-              style = {styles.modalInput}
-              placeholder='Description'
-              value = {description}
+              style={styles.modalInput}
+              placeholder="Description"
+              value={description}
               onChangeText={setDescription}
             />
             <TextInput
-              style = {styles.modalInput}
-              placeholder='Image URL'
-              value = {photo}
+              style={styles.modalInput}
+              placeholder="Image URL"
+              value={photo}
               onChangeText={setPhoto}
             />
-            <TouchableOpacity
-              onPress={handleCreateBoard}
-              style = {styles.modalButtonCreate}
-              accessibilityLabel='Create new Board'
-              accessibilityRole='button'
-            >
-              <Text style = {styles.modalButtonText}>Create</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => setModalVisible(false)}
-              style = {styles.modalButtonExit}
-              accessibilityLabel='Create new Board'
-              accessibilityRole='button'
-            >
-              <Text style = {styles.modalButtonText}>Exit</Text>
-            </TouchableOpacity>
-
+            <View style={styles.buttonRow}>
+              <TouchableOpacity
+                onPress={() => setModalVisible(false)}
+                style={styles.modalButtonExit}
+                accessibilityLabel="Create new Board"
+                accessibilityRole="button"
+              >
+                <Text style={styles.modalButtonText}>Exit</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={handleCreateBoard}
+                style={styles.modalButtonCreate}
+                accessibilityLabel="Create new Board"
+                accessibilityRole="button"
+              >
+                <Text style={styles.modalButtonText}>Create</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
     </>
   );
 }
-

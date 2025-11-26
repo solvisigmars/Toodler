@@ -56,7 +56,8 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   buttonTextDelete:{
-    color: 'black',
+    color: 'white',
+    fontWeight: 'bold',
     fontSize: 14
   },
   buttonDelete:{
@@ -72,9 +73,9 @@ export default StyleSheet.create({
   },
   modalBackground: {
     flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',  
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: background
+    alignItems: 'center'
   },
   modalContent: {
     width:'80%',
@@ -95,23 +96,30 @@ export default StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10
   },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: 10,
+    gap: 120
+  },
   modalButtonCreate: {
-    width: 60,
-    height: 30,
-    borderRadius: 25,
     backgroundColor: blue,
-    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 15,
+    minWidth: 100,
     alignItems: 'center',
-    left: 250
+    flex: 1
   },
   modalButtonExit:{
-    width: 60,
-    height: 30,
-    borderRadius: 25,
     backgroundColor: lightGray,
-    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 18,
+    minWidth: 100,
     alignItems: 'center',
-    right: 0
+    flex: 1
   },
   modalButtonText:{
     color: darkGray,
