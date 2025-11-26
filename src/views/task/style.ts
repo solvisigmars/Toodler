@@ -53,7 +53,6 @@ export default StyleSheet.create({
     color: darkGray,
   },
 
-  // DELETE BUTTON (same style as board delete!)
   buttonDelete: {
     position: 'absolute',
     top: 10,
@@ -74,7 +73,6 @@ export default StyleSheet.create({
     fontSize: 14,
   },
 
-  // MOVE BUTTON
   buttonMove: {
     position: 'absolute',
     top: 10,
@@ -108,7 +106,6 @@ export default StyleSheet.create({
     color: darkGray,
   },
 
-  // ADD TASK
   button: {
     backgroundColor: blue,
     padding: 15,
@@ -122,7 +119,6 @@ export default StyleSheet.create({
     fontSize: 18,
   },
 
-  // MODAL
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
@@ -187,7 +183,6 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // Move list options
   moveOption: {
     padding: 12,
     backgroundColor: lightGray,

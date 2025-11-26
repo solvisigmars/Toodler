@@ -63,7 +63,6 @@ export default function ListsScreen() {
               onPress={() => router.push(`/list/${item.id}`)}
               style={[styles.listItem, { backgroundColor: item.color }]}
             >
-              {/* DELETE BUTTON — SAME STYLE AS BOARDS & TASKS */}
               <TouchableOpacity
                 style={styles.buttonDelete}
                 onPress={() => handleDeleteList(item.id)}
@@ -71,14 +70,12 @@ export default function ListsScreen() {
                 <Text style={styles.buttonTextDelete}>Delete</Text>
               </TouchableOpacity>
 
-              {/* TITLE IN CENTER */}
               <Text style={styles.listTitle}>{item.name}</Text>
             </TouchableOpacity>
           </View>
         )}
       />
 
-      {/* Modal */}
       <Modal visible={modalVisible} animationType="slide" transparent={true}>
         <View style={styles.modalBackground}>
           <View style={styles.modalBox}>

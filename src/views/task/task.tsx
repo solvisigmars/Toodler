@@ -95,7 +95,6 @@ export default function TasksScreen() {
           <View style={styles.taskWrapper}>
             <View style={styles.taskItem}>
 
-              {/* DELETE BUTTON */}
               <TouchableOpacity
                 style={styles.buttonDelete}
                 onPress={() => handleDeleteTask(item.id)}
@@ -103,7 +102,6 @@ export default function TasksScreen() {
                 <Text style={styles.buttonTextDelete}>Delete</Text>
               </TouchableOpacity>
 
-              {/* MOVE BUTTON */}
               <TouchableOpacity
                 style={styles.buttonMove}
                 onPress={() => openMoveModal(item.id)}
@@ -111,7 +109,6 @@ export default function TasksScreen() {
                 <Text style={styles.buttonTextMove}>Move</Text>
               </TouchableOpacity>
 
-              {/* TOGGLE BUTTON */}
               <TouchableOpacity
                 style={styles.toggleButton}
                 onPress={() => handleToggle(item.id)}
@@ -121,19 +118,16 @@ export default function TasksScreen() {
                 </Text>
               </TouchableOpacity>
 
-              {/* TITLE */}
               <Text style={[styles.taskTitle, item.isFinished && styles.finishedTaskText]}>
                 {item.name}
               </Text>
 
-              {/* DESCRIPTION */}
               <Text style={styles.Description}>{item.description}</Text>
             </View>
           </View>
         )}
       />
 
-      {/* CREATE TASK MODAL */}
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>
@@ -172,7 +166,6 @@ export default function TasksScreen() {
         </View>
       </Modal>
 
-      {/* MOVE TASK MODAL */}
       <Modal visible={moveModalVisible} transparent animationType="fade">
         <View style={styles.modalBackground}>
           <View style={styles.modalContent}>

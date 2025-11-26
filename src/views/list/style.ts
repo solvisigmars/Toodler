@@ -41,7 +41,6 @@ export default StyleSheet.create({
     color: darkGray,
   },
 
-  // 🚀 MATCHES friend’s “button” style naming
   button: {
     backgroundColor: blue,
     padding: 15,
@@ -55,7 +54,6 @@ export default StyleSheet.create({
     fontSize: 18,
   },
 
-  // 🚀 Delete button — same naming as friend’s
   buttonDelete: {
     position: "absolute",
     top: 10,
